@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="navigation" href="navigation bar.html">
+    <link rel="stylesheet" href="style.css">
+    <title>login</title>
+    <script>  
+        function validateform(){  
+        var name=document.login.username.value;  
+        var password=document.login.pwd.value;  
+          
+        if (name==null || name==""){  
+          alert("Name can't be blank");  
+          return false;  
+        }else if(password.length<6){  
+          alert("Password must be at least 6 characters long.");  
+          return false;  
+          }  
+        }  
+        </script> 
+</head>
+<body>
+    
+    <main>
+      <div style="padding-left: 40%;">
+        <h1>Login</h1>
+        <form name= 'login' action="home.html"  onsubmit="return validateform()">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username"><br>
+            <label for="pwd">Password:</label><br>
+            <input type="password" id="pwd" name="pwd"><br><br>
+            <input type="submit" value="Submit">
+          </form>
+          <p><a href="forget.html" target="main">forget password?</a></p>
+          <p>Don't have an account? <a href="register.html" target="main">sign up</a></p>
+        </div>
+    </main>
+    
+</body>
+</html>

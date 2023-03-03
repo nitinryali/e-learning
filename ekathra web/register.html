@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="navigation" href="navigation bar.html" />
+  <link rel="stylesheet" href="style.css" />
+  <title>register</title>
+  <script>
+    function validate() {
+      var name = document.register.username.value;
+      var password = document.register.password.value;
+      var cp = document.register.confirmPassword.value;
+      var email = document.register.email.value;
+      var ph = document.register['mobile-number'].value;
+      let pattern = /^[6-9]\d{9}$/;
+      let pat = /^[\w][\w]+[@][\w]+[.][\w]+$/;
+      if (name.length < 6) {
+        alert("User Name must be at least 6 characters long.");
+        return false;
+      } else if (password.length < 8) {
+        alert("Password must be at least 8 characters long.");
+        return false;
+      } else if (password !== cp) {
+        alert("Password doesn't match!");
+        return false;
+      }  else if (ph.length !== 10) {
+        alert("Mobile number must be 10 characters long.");
+        return false;
+      } else if (!ph.match(pattern)) {
+        alert("Mobile number must start with digits 6 to 9.");
+        return false;
+      } else if (!email.match(pat)) {
+        alert("Email doesn't match pattern.");
+        return false;
+      }
+    }
+  </script>
+  
+</head>
+<body>
+  <main>
+    <div style="padding-left: 40%;">
+    <h1>Registration page</h1>
+    <form name='register' action="login.html" onsubmit="return validate()">
+      <label for="username" style="padding-bottom: 5px">Username:</label>
+      <input type="text" id="username" name="username" required style="padding-bottom: 10px; margin-bottom: 20px" />
+      <br />
+      <label for="password" style="padding-bottom: 5px">Password:</label>
+      <input type="password" id="password" name="password" required style="padding-bottom: 10px; margin-bottom: 20px" />
+      <br />
+      <label for="confirm-password" style="padding-bottom: 5px">Confirm Password:</label>
+      <input type="password" id="confirm-password" name="confirmPassword" required style="padding-bottom: 10px; margin-bottom: 20px" />
+      <br />
+      <label for="email" style="padding-bottom: 5px">Email-Id:</label>
+      <input type="email" id="email" name="email" required style="padding-bottom: 10px; margin-bottom: 20px" />
+      <br />
+      <label for="mobile-number" style="padding-bottom: 5px">Mobile Number:</label>
+      <input type="tel" id="mobile-number" name="mobile-number" required
+        style="padding-bottom: 10px; margin-bottom: 20px" />
+      <br />
+      <label for="dob" style="padding-bottom: 5px">Date of Birth:</label>
+      <input type="date" id="dob" name="dob" required style="padding-bottom: 10px; margin-bottom: 20px" />
+      <br />
+      <label for="address" style="padding-bottom: 5px">Address:</label>
+      <input type="text" id="address" name="address" required style="padding-bottom: 10px; margin-bottom: 20px" />
+      <br />
+      <label for="gender" style="padding-bottom: 5px">Gender:</label>
+      <select id="gender" name="gender" required style="padding-bottom: 10px; margin-bottom: 20px">
+        <option value=""></option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+      <br />
+      <input type="submit" value="Submit" />
+    </form>
+  </div>
+  </main>
+</body>
+
+</html>
